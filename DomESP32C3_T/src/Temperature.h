@@ -2,13 +2,14 @@
 
 #include <GyverDS18.h>
 
-GyverDS18Single ds(2);  // пин 2
+GyverDS18Single ds(4);  // пин 4
 
 class Temperature
 {
 private:
-  float _termo = 0;
-  
+  float _termo = 10;
+  int _voda = 0;
+  int pinSensor = 1;
 public:
 
 void settemp() {
@@ -29,7 +30,10 @@ float gettemp() {
     } return _termo;
 }
 
-
+int getVlaga(){
+_voda = analogRead(pinSensor);
+return _voda;
+}
 //     Temperature(/* args */);
 //     ~Temperature();
  };

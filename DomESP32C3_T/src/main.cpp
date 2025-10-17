@@ -25,14 +25,14 @@ Temperature tmp;
 // Структура в скетче платы-отправителя
 // должна совпадать с оной для получателя
 typedef struct struct_message {
-  char a[32];
+  char a [2];//[32];
   int b;
   float c;
   String d;
   bool e;
 } struct_message;
  
-// Создаем структуру сообщения myData
+// Создаем структуру сообщение myData
 struct_message myData;
  
 // Обратная функция отправки
@@ -54,7 +54,7 @@ void setup() {
     return;
   }
  
-  // Регистрируем отправку сообщения
+  // Регистрируем отправку сообщение
   esp_now_register_send_cb(OnDataSent);
   
   // Указываем получателя
@@ -71,10 +71,10 @@ void setup() {
  
 void loop() {
   // Указываем данные, которые будем отправлять
-  strcpy(myData.a, "THIS IS A CHAR");
-  myData.b = random(1,20);
+  strcpy(myData.a, "a");
+  myData.b = tmp.getVlaga(); //random(1,20);
   myData.c = tmp.gettemp();
-  myData.d = "Hello";
+  myData.d = "Vanna";
   myData.e = false;
  
   // Отправляем сообщение
@@ -87,4 +87,4 @@ void loop() {
     Serial.println("Error sending the data");
   }
   delay(2000);
-}
+}   
