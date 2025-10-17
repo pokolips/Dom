@@ -43,6 +43,7 @@ void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
   Serial.println(myData.e);
   Serial.println();
 }
+
  
 void setup() {
   // Запускаем монитор порта
