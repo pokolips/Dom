@@ -25,7 +25,7 @@ Temperature tmp;
 // Структура в скетче платы-отправителя
 // должна совпадать с оной для получателя
 typedef struct struct_message {
-  char a[32];
+  char a[2];
   int b;
   float c;
   String d;
@@ -71,10 +71,10 @@ void setup() {
  
 void loop() {
   // Указываем данные, которые будем отправлять
-  strcpy(myData.a, "THIS IS A CHAR");
+  strcpy(myData.a, "a");
   myData.b = random(1,20);
   myData.c = tmp.gettemp();
-  myData.d = "Hello";
+  myData.d = "Vanna";
   myData.e = false;
  
   // Отправляем сообщение
