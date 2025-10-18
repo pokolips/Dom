@@ -1,6 +1,6 @@
 # Dom
 
-<font color="#d99694">**Пока не работает** !!! </font>
+<font color="#fc1710ff"> **Пока не работает** !!! </font>
 
 - Работает только начальный скетч (правилно работает).
 
@@ -28,6 +28,7 @@
 Начальный скетч взят: [Руководство по ESP-NOW](https://voltiq.ru/esp-now-esp32-arduino-ide/?ysclid=lyya2i91g5994491045)
 
 Температура: [Alex Gyver](https://alexgyver.ru/lessons/ds18b20/)
+
 ```cpp
 // асинхронный опрос одного датчика на пине
 
@@ -52,6 +53,7 @@ void loop() {
     }
 }
 ```
+
 Ещё...
 [Датчик температуры Arduino DS18B20](https://arduinomaster.ru/datchiki-arduino/arduino-ds18b20/)
 
@@ -102,4 +104,3 @@ void printAddress(DeviceAddress deviceAddress){
   }
 }
 ```
-
