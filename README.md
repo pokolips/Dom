@@ -16,6 +16,6 @@
 
 - ESP32 Dev Module (30 pin)
 - ESP32C3 Super Mini
+![Dev Module]()
 
-
-Начальный скетч взят [отсюда](https://voltiq.ru/esp-now-esp32-arduino-ide/?ysclid=lyya2i91g5994491045)
+Начальный скетч взят [Руководство по ESP-NOW](https://voltiq.ru/esp-now-esp32-arduino-ide/?ysclid=lyya2i91g5994491045)
