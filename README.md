@@ -28,3 +28,26 @@
 Начальный скетч взят: [Руководство по ESP-NOW](https://voltiq.ru/esp-now-esp32-arduino-ide/?ysclid=lyya2i91g5994491045)
 
 Температура: [Alex Gyver](https://alexgyver.ru/lessons/ds18b20/)
+```cpp
+// асинхронный опрос одного датчика на пине
+
+#include <GyverDS18.h>
+GyverDS18Single ds(4);  // пин 4
+
+void setup() {
+    Serial.begin(115200);
+    ds.requestTemp();  // первый запрос на измерение
+}
+
+void loop() {
+    if (ds.ready()) {         // измерения готовы по таймеру
+        if (ds.readTemp()) {  // если чтение успешно
+            Serial.print("temp: ");
+            Serial.println(ds.getTemp());
+        } else {
+            Serial.println("read error");
+        }
+
+        ds.requestTemp();  // запрос следующего измерения
+    }
+}
