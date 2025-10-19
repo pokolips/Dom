@@ -83,12 +83,10 @@ void setup() {
     Serial.println("Failed to add peer");
     return;
   }
-  //tmp.settemp();
 }
  
 void loop() {
 
-  //temperature = 
   temperature = detectTemperature(); // Определяем температуру от датчика DS18b20
   
   tmp.setVlagaMoj();
@@ -116,7 +114,7 @@ void loop() {
   delay(5000);
 }  
 
-
+//--------------------------------------------------
 int detectTemperature(){
 
   byte data[2];
