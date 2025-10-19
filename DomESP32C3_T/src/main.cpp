@@ -79,12 +79,10 @@ void setup() {
     Serial.println("Failed to add peer");
     return;
   }
-  //tmp.settemp();
 }
  
 void loop() {
 
-  //temperature = 
   temperature = detectTemperature(); // Определяем температуру от датчика DS18b20
 
  
@@ -94,7 +92,7 @@ void loop() {
   myData.b = random(1,20);// оставал старое
   myData.c = temperature;//10.2;
   myData.d = uzel();
-  myData.e = true;
+  myData.e = getVoda();
  
   // Отправляем сообщение
   esp_err_t result = esp_now_send(broadcastAddress, (uint8_t *) &myData, sizeof(myData));
@@ -129,17 +127,20 @@ int detectTemperature(){
     temperature = (data[1] << 8) + data[0]; temperature = temperature >> 4;
   } return temperature;
 }
-int getVoda() {
-  int vlaga = 0;
+bool getVoda() {
+  bool vlaga = 0;
 
   if(analogRead(vanRoom)<700){
     voda = 1;
+    vlaga = 1;
   } else voda = 0;
   if(analogRead(mojPlace)<700){
     voda = 2;
+    vlaga = 1;
     // Написать
-  } else voda = 0; 
-  return voda;
+  } else {voda = 0;
+    vlaga = 0;} 
+  return vlaga;
 }
 
 String uzel(){
