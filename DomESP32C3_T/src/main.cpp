@@ -112,7 +112,7 @@ void loop() {
   delay(5000);
 }  
 
-
+//-------------------------------------------------
 int detectTemperature(){
 
   byte data[2];
