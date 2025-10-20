@@ -18,9 +18,16 @@
 Комплектующие:
 
 - ESP32 Dev Module (30 pin)
-- ESP32C3 Super Mini
+- ESP32C3 Super Mini 
+- Используются контакты:
+- + GPIO 4 - Датчик температуры
+- + GPIO 3 - Датчик влаги 1
+- + GPIO 1 - Датчик влаги 2
 - Датчик DS18B20
 - Самодельный датчик влажности, состоящий из двух кусков медной жилы 2,5 мм2.
+
+---
+
 - Dev Module
 ![ESP32](Proect/ESP32DevModule(30pin).png "ESP32")
 - Super Mini
@@ -107,3 +114,4 @@ void printAddress(DeviceAddress deviceAddress){
   }
 }
 ```
+1 
