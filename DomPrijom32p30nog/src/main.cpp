@@ -62,4 +62,9 @@ void setup() {
   esp_now_register_recv_cb(OnDataRecv);
 }
 void loop() {
+  char n [32] = "Hello";
+  String Uzel = "vanna";
+  if (myData.a == "a"){
+    myData.a = n;
+  }
 }
