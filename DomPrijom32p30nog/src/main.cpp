@@ -12,31 +12,48 @@
 
 #include <esp_now.h>
 #include <WiFi.h>
+//#include "Shifr.h"
 
 // Структура должна совпадать со структурой
 // на плате-отправителе
 typedef struct struct_message {
-    char a[32];
+    char ob;
+    char a[10];
     int b;
     float c;
+   // float c1;
     String d;
     bool e;
 } struct_message;
+void setData();
+float tVann;
+float tKuhn;
+char as[10];
+char ad[10];
 
 // Создаем myData
 struct_message myData;
+//Shifr shifr;
 
 // Обратная функция при получении
 void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
   memcpy(&myData, incomingData, sizeof(myData));
+  //shifr.setAgmt(&myData);
+  setData();
   Serial.print("Bytes received: ");
   Serial.println(len);
   Serial.print("Char: ");
-  Serial.println(myData.a);
+  // Serial.println(myData.ob);
+  // Serial.print("Char: ");
+  //Serial.println(myData.a);
   Serial.print("Int: ");
   Serial.println(myData.b);
-  Serial.print("Float: ");
-  Serial.println(myData.c);
+  Serial.print(ad);
+  Serial.print(" ");
+  Serial.println(tVann);//myData.c
+  Serial.print(as);
+  Serial.print(" ");
+  Serial.println(tKuhn);
   Serial.print("String: ");
   Serial.println(myData.d);
   Serial.print("Bool: ");
@@ -62,9 +79,19 @@ void setup() {
   esp_now_register_recv_cb(OnDataRecv);
 }
 void loop() {
-  char n [32] = "Hello";
-  String Uzel = "vanna";
-  if (myData.a == "a"){
-    myData.d = Uzel;
-  }
+  char n [6] = "Hello";
+ 
+}
+void setData(){
+  if (myData.ob == 'a'){
+    strcpy(ad, "Vanna"); 
+    strcpy(myData.a, "Vanna");
+    tVann = myData.c;
+
+  } else if (myData.ob == 'b'){
+     strcpy(as, "Kuhnia");
+        strcpy(myData.a, "Kuhnia");
+           tKuhn = myData.c;
+         }
+
 }
